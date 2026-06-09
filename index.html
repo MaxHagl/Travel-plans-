@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E3A2C">
+<title>Alpine Escape · Three Hidden Valleys · July 10–12</title>
+<style>
+  :root{
+    --ink:#232a24; --ink-soft:#4c5247; --cream:#f4efe4; --cream-2:#ece4d4;
+    --paper:#fbf8f1; --pine:#1e3a2c; --moss:#3f5d49; --stone:#8c8576;
+    --line:#ddd3bf; --line-soft:#e7dfcd; --lake:#4e8079; --lake-deep:#2f5a55;
+    --larch:#bf8636; --shadow:0 1px 2px rgba(35,42,36,.04), 0 12px 30px -18px rgba(35,42,36,.22);
+    --serif:ui-serif,"New York","Iowan Old Style",Palatino,Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --wrap:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
+
+  /* eyebrow / labels */
+  .eyebrow{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone)}
+  .num{font-family:var(--mono); font-weight:600}
+
+  /* ---------- masthead nav ---------- */
+  .masthead{
+    position:sticky; top:0; z-index:40; background:rgba(244,239,228,.86);
+    backdrop-filter:saturate(140%) blur(10px); -webkit-backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .masthead .bar{display:flex; align-items:center; justify-content:space-between; min-height:54px; gap:14px}
+  .brand{display:flex; align-items:center; gap:9px; font-family:var(--serif); font-weight:600; letter-spacing:.01em; color:var(--pine); font-size:1.04rem; text-decoration:none}
+  .brand svg{display:block; flex:0 0 auto}
+  .navlinks{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-soft); text-decoration:none; padding:7px 9px; border-radius:6px; white-space:nowrap;
+    transition:color .2s, background .2s;
+  }
+  .navlinks a:hover{color:var(--pine); background:var(--cream-2)}
+  .navlinks a.active{color:var(--pine); background:#e5dcc8}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
+  .hero .topo{position:absolute; inset:0; width:100%; height:100%; opacity:.5; pointer-events:none}
+  .hero .inner{position:relative; padding:64px 0 0}
+  .hero h1{
+    font-family:var(--serif); font-weight:600; color:var(--pine);
+    font-size:clamp(2.3rem,8.4vw,3.7rem); line-height:1.04; letter-spacing:-.018em; margin:.5rem 0 0;
+  }
+  .hero h1 em{font-style:italic; color:var(--moss)}
+  .lede{font-size:clamp(1.05rem,3.4vw,1.22rem); color:var(--ink-soft); max-width:34em; margin:1.1rem 0 1.6rem; line-height:1.55}
+  .params{display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:34px}
+  .params div{flex:1 1 50%; padding:13px 2px; border-bottom:1px solid var(--line-soft)}
+  .params div:nth-child(odd){border-right:1px solid var(--line-soft); padding-right:14px}
+  .params div:nth-child(even){padding-left:16px}
+  .params .k{font-family:var(--mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); display:block; margin-bottom:3px}
+  .params .v{font-family:var(--serif); font-size:1.04rem; color:var(--pine)}
+  .heroridge{display:block; width:100%; height:auto; margin-bottom:-2px}
+
+  /* ---------- trip article ---------- */
+  .trip{padding:62px 0 8px; border-bottom:1px solid var(--line)}
+  .trip-head{margin-bottom:22px}
+  .kicker{display:flex; align-items:baseline; gap:12px; margin-bottom:10px}
+  .kicker .idx{font-family:var(--mono); font-size:.8rem; font-weight:600; color:var(--lake-deep); letter-spacing:.04em}
+  .kicker .region{font-family:var(--mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone)}
+  .trip h2{font-family:var(--serif); font-weight:600; color:var(--pine); font-size:clamp(1.75rem,5.6vw,2.55rem); line-height:1.08; letter-spacing:-.012em; margin:0}
+  .vibe{font-family:var(--serif); font-style:italic; color:var(--moss); font-size:1.12rem; margin:.5rem 0 0; line-height:1.45}
+
+  figure.scene{margin:26px 0 8px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--paper); box-shadow:var(--shadow)}
+  figure.scene svg{display:block; width:100%; height:auto}
+  figure.scene figcaption{font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--stone); padding:9px 14px; border-top:1px solid var(--line-soft); background:var(--cream)}
+
+  .intro{margin:22px 0 26px; color:var(--ink-soft); font-size:1.06rem}
+
+  /* at a glance */
+  .glance{border:1px solid var(--line); border-radius:10px; background:var(--paper); overflow:hidden; margin-bottom:34px}
+  .glance .row{display:flex; gap:0; border-bottom:1px solid var(--line-soft)}
+  .glance .row:last-child{border-bottom:0}
+  .glance .cell{flex:1 1 50%; padding:13px 16px}
+  .glance .cell + .cell{border-left:1px solid var(--line-soft)}
+  .glance .lab{font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--stone); display:block; margin-bottom:4px}
+  .glance .val{font-size:.97rem; color:var(--ink); line-height:1.35}
+  .glance .val b{font-family:var(--serif); font-weight:600; color:var(--pine)}
+
+  /* itinerary timeline */
+  h3.sec{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); margin:0 0 18px; font-weight:600}
+  .timeline{position:relative; margin:0 0 12px; padding-left:30px}
+  .timeline::before{content:""; position:absolute; left:7px; top:6px; bottom:14px; width:2px; background:linear-gradient(var(--line),var(--line) 70%,transparent)}
+  .day{position:relative; padding-bottom:26px}
+  .day::before{content:""; position:absolute; left:-30px; top:4px; width:16px; height:16px; border-radius:50%; background:var(--cream); border:2px solid var(--moss)}
+  .day .dlab{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--moss); font-weight:600}
+  .day h4{font-family:var(--serif); font-weight:600; color:var(--pine); font-size:1.16rem; margin:.18rem 0 .5rem; line-height:1.25}
+  .day p{margin:0; color:var(--ink-soft); font-size:1.0rem}
+
+  .switch{position:relative; margin:2px 0 26px; padding-left:30px}
+  .switch::before{content:"⇄"; position:absolute; left:-26px; top:0; width:18px; height:18px; line-height:16px; text-align:center; font-size:.78rem; color:#fff; background:var(--larch); border-radius:50%; border:2px solid var(--cream); box-sizing:content-box; transform:translateX(-1px)}
+  .switch .t{font-family:var(--mono); font-size:.64rem; letter-spacing:.13em; text-transform:uppercase; color:var(--larch); font-weight:600}
+  .switch .d{font-size:.96rem; color:var(--ink-soft); margin-top:2px}
+
+  /* marquee hike callout */
+  .hike{border:1px solid var(--lake); border-left:4px solid var(--lake); border-radius:10px; background:linear-gradient(180deg,#eef4f1,#f4efe4); padding:18px 18px 16px; margin:6px 0 36px}
+  .hike .htag{font-family:var(--mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--lake-deep); font-weight:600}
+  .hike h4{font-family:var(--serif); font-weight:600; color:var(--pine); font-size:1.2rem; margin:.25rem 0 .5rem}
+  .hike p{margin:0 0 12px; color:var(--ink-soft); font-size:1.0rem}
+  .badges{display:flex; flex-wrap:wrap; gap:8px}
+  .badge{display:inline-flex; flex-direction:column; gap:1px; background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:6px 11px; min-width:74px}
+  .badge .bk{font-family:var(--mono); font-size:.54rem; letter-spacing:.13em; text-transform:uppercase; color:var(--stone)}
+  .badge .bv{font-family:var(--mono); font-size:.92rem; font-weight:600; color:var(--lake-deep)}
+
+  /* cost table */
+  .cost{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--paper); margin-bottom:8px}
+  .cost .citem{display:flex; align-items:baseline; justify-content:space-between; gap:14px; padding:13px 16px; border-bottom:1px solid var(--line-soft)}
+  .cost .citem .cl{font-size:.98rem}
+  .cost .citem .cl .sub{display:block; font-family:var(--mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); margin-top:2px}
+  .cost .citem .cv{font-family:var(--mono); font-weight:600; color:var(--ink); white-space:nowrap; font-size:.98rem}
+  .cost .ctotal{display:flex; align-items:baseline; justify-content:space-between; gap:14px; padding:15px 16px; background:var(--pine)}
+  .cost .ctotal .cl{font-family:var(--serif); font-weight:600; color:#f6f1e6; font-size:1.06rem}
+  .cost .ctotal .cl span{display:block; font-family:var(--mono); font-size:.56rem; letter-spacing:.12em; text-transform:uppercase; color:#a9bdaf; font-weight:400; margin-top:2px}
+  .cost .ctotal .cv{font-family:var(--mono); font-weight:700; color:#fff; font-size:1.32rem}
+
+  /* ---------- compare ---------- */
+  .compare{padding:60px 0; background:var(--cream-2); border-bottom:1px solid var(--line)}
+  .compare h2{font-family:var(--serif); font-weight:600; color:var(--pine); font-size:clamp(1.7rem,5.4vw,2.4rem); margin:.4rem 0 .4rem; letter-spacing:-.01em}
+  .compare .sub{color:var(--ink-soft); max-width:32em; margin:0 0 28px}
+  .ctable{display:flex; flex-direction:column; gap:14px}
+  .crow{background:var(--paper); border:1px solid var(--line); border-radius:11px; padding:18px; box-shadow:var(--shadow)}
+  .crow .ctop{display:flex; align-items:baseline; gap:10px; margin-bottom:12px}
+  .crow .cno{font-family:var(--mono); font-weight:700; color:var(--lake-deep); font-size:.84rem}
+  .crow .cname{font-family:var(--serif); font-weight:600; color:var(--pine); font-size:1.18rem; line-height:1.15}
+  .crow .cprice{margin-left:auto; font-family:var(--mono); font-weight:700; color:var(--pine); font-size:1.05rem; white-space:nowrap}
+  .cattrs{display:grid; grid-template-columns:1fr 1fr; gap:11px 16px}
+  .cattrs .ca{min-width:0}
+  .cattrs .ca .k{font-family:var(--mono); font-size:.56rem; letter-spacing:.13em; text-transform:uppercase; color:var(--stone); display:block; margin-bottom:2px}
+  .cattrs .ca .v{font-size:.94rem; color:var(--ink); line-height:1.3}
+  .cattrs .ca.full{grid-column:1 / -1}
+  .cattrs .ca.full .v{color:var(--moss); font-style:italic; font-family:var(--serif)}
+
+  .verdict{margin-top:26px; border-top:1px solid var(--line); padding-top:22px}
+  .verdict .vh{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:14px}
+  .verdict ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px}
+  .verdict li{display:flex; gap:12px; align-items:flex-start; font-size:1.0rem; color:var(--ink-soft)}
+  .verdict li .pill{flex:0 0 auto; font-family:var(--mono); font-size:.62rem; font-weight:700; letter-spacing:.06em; color:#fff; background:var(--moss); border-radius:20px; padding:4px 11px; margin-top:2px}
+  .verdict li b{color:var(--pine)}
+
+  /* ---------- footer ---------- */
+  footer{padding:54px 0 70px}
+  footer .close{font-family:var(--serif); font-style:italic; color:var(--moss); font-size:1.3rem; line-height:1.4; max-width:24em; margin:0 0 34px}
+  footer h3{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); font-weight:600; margin:0 0 16px}
+  footer .notes{display:flex; flex-direction:column; gap:13px; max-width:40em}
+  footer .notes .n{display:flex; gap:12px; align-items:flex-start; font-size:.96rem; color:var(--ink-soft)}
+  footer .notes .n svg{flex:0 0 auto; margin-top:3px}
+  footer .sig{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone)}
+
+  /* reveal animation */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  a:focus-visible, .navlinks a:focus-visible{outline:2px solid var(--lake-deep); outline-offset:3px; border-radius:5px}
+
+  @media (min-width:680px){
+    body{font-size:18px}
+    .params div{flex-basis:25%}
+    .params div:nth-child(odd){border-right:1px solid var(--line-soft)}
+    .params div:nth-child(3),.params div:nth-child(1){border-right:1px solid var(--line-soft)}
+    .cattrs{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1; transform:none; transition:none}
+    *{scroll-behavior:auto}
+  }
+  html{scroll-behavior:smooth}
+  :target{scroll-margin-top:70px}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="masthead">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Alpine Escape home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M2 20h20L14.5 6l-3.2 6-2.1-3L2 20z" fill="#3f5d49"/>
+        <path d="M11.3 12l3.2-6L22 20h-7l-3.7-8z" fill="#1e3a2c"/>
+        <path d="M12.7 9.3l1.8-3.3 1.2 2.2-1.4 1.3-1.6-.2z" fill="#fbf8f1"/>
+      </svg>
+      Alpenroute
+    </a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#opt1">01 · Tannheim &amp; Lech</a>
+      <a href="#opt2">02 · Ramsau</a>
+      <a href="#opt3">03 · Obernberg</a>
+      <a href="#compare">Compare</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <svg class="topo" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#d9cfb8" stroke-width="1">
+      <path d="M-50 360 C150 300 280 420 430 360 S720 300 880 370"/>
+      <path d="M-50 392 C150 332 285 452 432 392 S722 332 880 402"/>
+      <path d="M-50 424 C150 364 290 484 434 424 S724 364 880 434"/>
+      <path d="M-50 300 C180 250 300 350 470 300 S760 250 900 320"/>
+      <path d="M-50 268 C180 220 305 318 472 268 S762 218 900 288"/>
+      <path d="M-50 470 C200 420 340 520 500 470 S780 430 920 490"/>
+      <path d="M-50 200 C160 170 320 250 480 205 S700 150 880 210"/>
+    </g>
+  </svg>
+  <div class="inner">
+    <div class="wrap">
+      <p class="eyebrow">Alpine Escape · A Decision Page · 3 Days / 2 Nights</p>
+      <h1>Two valleys,<br><em>three ways</em> to disappear</h1>
+      <p class="lede">Three hidden corners of the Alps within an easy drive of Ingolstadt — each a two-hotel route built to dodge the July crowds, chase one unforgettable hike, and end every evening somewhere quietly romantic.</p>
+      <div class="params">
+        <div><span class="k">From</span><span class="v">Ingolstadt</span></div>
+        <div><span class="k">Window</span><span class="v">~ July 10–12</span></div>
+        <div><span class="k">Shape</span><span class="v">2-hotel split</span></div>
+        <div><span class="k">Promise</span><span class="v">No tour buses</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- hero ridgeline band -->
+  <svg class="heroridge" viewBox="0 0 1440 280" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f4efe4"/><stop offset="1" stop-color="#efe7d6"/>
+      </linearGradient>
+      <linearGradient id="heroBack" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#b9c4b4"/><stop offset="1" stop-color="#a9b6a6"/>
+      </linearGradient>
+      <linearGradient id="heroMid" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7c9382"/><stop offset="1" stop-color="#5f7a66"/>
+      </linearGradient>
+      <linearGradient id="heroFront" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#365441"/><stop offset="1" stop-color="#21392b"/>
+      </linearGradient>
+    </defs>
+    <rect width="1440" height="280" fill="url(#heroSky)"/>
+    <circle cx="1140" cy="70" r="34" fill="#e9c98a" opacity=".55"/>
+    <path d="M0 150 L120 96 L210 138 L320 70 L430 130 L520 88 L640 150 L760 96 L880 150 L1010 84 L1130 140 L1260 92 L1380 146 L1440 118 L1440 280 L0 280 Z" fill="url(#heroBack)"/>
+    <path d="M0 200 L150 150 L260 192 L380 130 L500 188 L620 142 L760 200 L900 150 L1040 196 L1180 146 L1320 198 L1440 162 L1440 280 L0 280 Z" fill="url(#heroMid)"/>
+    <path d="M0 246 L140 206 L280 244 L430 196 L560 244 L700 210 L840 250 L980 208 L1120 250 L1280 210 L1420 250 L1440 244 L1440 280 L0 280 Z" fill="url(#heroFront)"/>
+  </svg>
+</section>
+
+<main>
+
+<!-- ===================== OPTION 1 ===================== -->
+<article class="trip" id="opt1">
+  <div class="wrap">
+    <div class="trip-head reveal">
+      <div class="kicker"><span class="idx">OPTION 01</span><span class="region">Tyrol · Tannheimer Tal → Lechtal</span></div>
+      <h2>Tannheim &amp; the Wild Lech</h2>
+      <p class="vibe">Two turquoise high-valley lakes, then a wild glacial river and Austria's most spectacular footbridge.</p>
+    </div>
+
+    <figure class="scene reveal">
+      <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of a turquoise alpine lake below layered green ridges, with a thin suspension footbridge spanning a gorge.">
+        <defs>
+          <linearGradient id="s1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f1e6"/><stop offset="1" stop-color="#eadfca"/></linearGradient>
+          <linearGradient id="s1far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2ccbd"/><stop offset="1" stop-color="#aebaab"/></linearGradient>
+          <linearGradient id="s1mid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#86997f"/><stop offset="1" stop-color="#5f7a62"/></linearGradient>
+          <linearGradient id="s1near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c5942"/><stop offset="1" stop-color="#223d2c"/></linearGradient>
+          <linearGradient id="s1lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb0a6"/><stop offset=".5" stop-color="#4f8e85"/><stop offset="1" stop-color="#356f68"/></linearGradient>
+        </defs>
+        <rect width="1200" height="720" fill="url(#s1sky)"/>
+        <circle cx="930" cy="120" r="56" fill="#f0d49a" opacity=".7"/>
+        <!-- far ridge -->
+        <path d="M0 250 L150 150 L260 215 L380 120 L520 210 L660 130 L820 220 L980 140 L1120 215 L1200 175 L1200 460 L0 460 Z" fill="url(#s1far)"/>
+        <!-- mid ridge -->
+        <path d="M0 320 L140 235 L300 320 L430 215 L560 305 L700 225 L880 320 L1040 240 L1200 315 L1200 470 L0 470 Z" fill="url(#s1mid)"/>
+        <!-- snow caps on mid -->
+        <path d="M414 230 L430 215 L448 233 L438 236 L430 228 L422 235 Z" fill="#f3eee2" opacity=".85"/>
+        <path d="M686 240 L700 225 L716 243 L706 245 L700 236 L693 245 Z" fill="#f3eee2" opacity=".85"/>
+        <!-- gorge gap + suspension bridge (left third) -->
+        <path d="M150 470 L150 360 L300 360 L300 470 Z" fill="#2c4936" opacity=".9"/>
+        <line x1="120" y1="350" x2="330" y2="345" stroke="#2a3c30" stroke-width="3"/>
+        <path d="M120 350 Q225 388 330 345" fill="none" stroke="#1f2e25" stroke-width="2.5"/>
+        <g stroke="#2a3c30" stroke-width="1.4" opacity=".85">
+          <line x1="150" y1="349" x2="155" y2="372"/><line x1="180" y1="354" x2="183" y2="378"/>
+          <line x1="210" y1="362" x2="212" y2="383"/><line x1="240" y1="368" x2="242" y2="384"/>
+          <line x1="270" y1="362" x2="272" y2="380"/><line x1="300" y1="354" x2="303" y2="372"/>
+        </g>
+        <!-- near forest ridge -->
+        <path d="M0 430 L120 360 L260 440 L420 350 L560 440 L720 360 L900 450 L1060 370 L1200 445 L1200 560 L0 560 Z" fill="url(#s1near)"/>
+        <!-- trees on near ridge -->
+        <g fill="#1c3325">
+          <path d="M70 432 l9 26 -18 0 z"/><path d="M110 426 l9 28 -18 0 z"/><path d="M150 436 l8 24 -16 0 z"/>
+          <path d="M980 440 l9 26 -18 0 z"/><path d="M1020 432 l9 28 -18 0 z"/><path d="M1060 442 l8 24 -16 0 z"/>
+        </g>
+        <!-- lake -->
+        <path d="M0 560 L1200 560 L1200 720 L0 720 Z" fill="url(#s1lake)"/>
+        <!-- lake highlights / reflection -->
+        <g opacity=".5" fill="#bfe3da">
+          <rect x="120" y="588" width="220" height="4" rx="2"/>
+          <rect x="420" y="612" width="320" height="4" rx="2"/>
+          <rect x="760" y="596" width="260" height="4" rx="2"/>
+          <rect x="240" y="648" width="180" height="3" rx="1.5"/>
+        </g>
+        <path d="M300 560 l40 70 -80 0 z" fill="#2f6760" opacity=".4"/>
+        <path d="M860 560 l46 80 -92 0 z" fill="#2f6760" opacity=".4"/>
+      </svg>
+      <figcaption>Vilsalpsee &amp; the Höhenbachtal · original illustration</figcaption>
+    </figure>
+
+    <p class="intro reveal">You start beside a string of deep-blue lakes ringed by limestone walls, then cross a single pass into the Lechtal — one of the last wild river valleys in the Alps, where the Lech still braids across open gravel beds. The marquee day is a quiet lake-to-lake hike; the encore is walking 110 metres above a gorge on a swaying steel ribbon.</p>
+
+    <div class="glance reveal">
+      <div class="row">
+        <div class="cell"><span class="lab">Drive from Ingolstadt</span><span class="val"><b>~ 2 h 45</b> · A7 via Kempten → Oberjoch</span></div>
+        <div class="cell"><span class="lab">Marquee hike</span><span class="val"><b>Vilsalpsee → Traualpsee</b> · moderate</span></div>
+      </div>
+      <div class="row">
+        <div class="cell"><span class="lab">Base 1 · Night</span><span class="val"><b>Grän / Tannheim</b><br>quiet lakeside, by the Haldensee</span></div>
+        <div class="cell"><span class="lab">Base 2 · Night</span><span class="val"><b>Holzgau</b> (Lechtal)<br>wild river-valley village</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">The Route, Day by Day</h3>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 1 · Arrival</span>
+        <h4>The lake at golden hour</h4>
+        <p>Late-morning drive south; check in near the Haldensee by early afternoon. A slow lakeside loop or e-bike spin, coffee and cake on a terrace, then — if legs are willing — the Neunerköpfle cable car for a sunset panorama down the whole valley. Dinner in Tannheim.</p>
+      </div>
+      <div class="day">
+        <span class="dlab">Day 2 · The big day</span>
+        <h4>Lake to lake, then over the pass</h4>
+        <p>Start early — the Vilsalpsee road is closed to cars from 8 a.m. to 5 p.m., so drive in before then or ride the little <span class="num">Alpenexpress</span>. From the lake, climb the west shore up to the Traualpsee and the Obere Traualpe, two more turquoise pools tucked under the Lachenspitze. Snack at the alm, then drive over the Gaichtpass into the Lechtal in the afternoon.</p>
+      </div>
+    </div>
+    <div class="switch reveal">
+      <span class="t">Switch hotels</span>
+      <div class="d">Tannheimer Tal → Holzgau, ~45 min over the Gaichtpass. Evening walk to see the suspension bridge lit up above the village.</div>
+    </div>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 3 · Encore &amp; home</span>
+        <h4>The bridge, the waterfall, the drive back</h4>
+        <p>Morning loop out to the Holzgau suspension bridge and the Simms waterfall, with a stop at Café Uta. Lunch in Holzgau, then home via Reutte and the Fernpass (~3 h).</p>
+      </div>
+    </div>
+
+    <div class="hike reveal">
+      <span class="htag">★ Marquee Hike</span>
+      <h4>Vilsalpsee · Traualpsee · Obere Traualpe</h4>
+      <p>A nature-reserve classic: well-marked paths from a car-free lake up to two higher tarns beneath sheer walls. Not technical, just a steady, rewarding climb — turquoise water at every turn, an alpine hut for cake at the top.</p>
+      <div class="badges">
+        <div class="badge"><span class="bk">Distance</span><span class="bv">~10–12 km</span></div>
+        <div class="badge"><span class="bk">Ascent</span><span class="bv">~500 m</span></div>
+        <div class="badge"><span class="bk">Time</span><span class="bv">~3–3.5 h</span></div>
+        <div class="badge"><span class="bk">Grade</span><span class="bv">Moderate</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">Cost · A Couple · Estimated July High Season</h3>
+    <div class="cost reveal">
+      <div class="citem"><span class="cl">Accommodations<span class="sub">2 nights · double · breakfast</span></span><span class="cv">€ 330</span></div>
+      <div class="citem"><span class="cl">Activities &amp; local transport<span class="sub">cable car · Alpenexpress · parking</span></span><span class="cv">€ 75</span></div>
+      <div class="citem"><span class="cl">Food &amp; drink<span class="sub">3 days · huts, terraces, 2 dinners</span></span><span class="cv">€ 185</span></div>
+      <div class="citem"><span class="cl">Getting there<span class="sub">fuel ~480 km RT · Austria vignette</span></span><span class="cv">€ 120</span></div>
+      <div class="ctotal"><span class="cl">Estimated total<span>all-in, from your door</span></span><span class="cv">≈ €710</span></div>
+    </div>
+  </div>
+</article>
+
+<!-- ===================== OPTION 2 ===================== -->
+<article class="trip" id="opt2">
+  <div class="wrap">
+    <div class="trip-head reveal">
+      <div class="kicker"><span class="idx">OPTION 02</span><span class="region">Bavaria · Berchtesgaden National Park</span></div>
+      <h2>Ramsau &amp; the Blue Ice</h2>
+      <p class="vibe">An enchanted forest lake and Germany's northernmost glacier — the wild corner of Berchtesgaden the tour buses skip.</p>
+    </div>
+
+    <figure class="scene reveal">
+      <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of jagged grey peaks holding a small blue glacier, with dark forest, a turquoise lake, and a small onion-dome church below.">
+        <defs>
+          <linearGradient id="s2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef0ea"/><stop offset="1" stop-color="#e6e2d2"/></linearGradient>
+          <linearGradient id="s2rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa0a0"/><stop offset="1" stop-color="#6f7777"/></linearGradient>
+          <linearGradient id="s2rock2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7e8585"/><stop offset="1" stop-color="#565e60"/></linearGradient>
+          <linearGradient id="s2for" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33503d"/><stop offset="1" stop-color="#1c3325"/></linearGradient>
+          <linearGradient id="s2lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb7b1"/><stop offset="1" stop-color="#3d7a72"/></linearGradient>
+          <linearGradient id="s2ice" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbeaf0"/><stop offset="1" stop-color="#a9cdd9"/></linearGradient>
+        </defs>
+        <rect width="1200" height="720" fill="url(#s2sky)"/>
+        <circle cx="250" cy="115" r="48" fill="#ecd9a6" opacity=".5"/>
+        <!-- back rock massif -->
+        <path d="M0 360 L120 180 L240 300 L360 120 L520 280 L640 150 L780 300 L920 170 L1080 300 L1200 210 L1200 470 L0 470 Z" fill="url(#s2rock)"/>
+        <!-- front sharper peaks (Hochkalter) -->
+        <path d="M300 470 L470 150 L560 270 L660 90 L760 250 L880 160 L980 300 L1120 200 L1200 280 L1200 480 L300 480 Z" fill="url(#s2rock2)"/>
+        <!-- glacier patch in the cirque -->
+        <path d="M600 230 L660 130 L720 250 L700 300 L640 300 L612 262 Z" fill="url(#s2ice)" opacity=".95"/>
+        <path d="M636 300 L612 262 L660 178 L692 250 Z" fill="#c4dde6" opacity=".8"/>
+        <!-- snow streaks -->
+        <g fill="#eef3f3" opacity=".7"><path d="M455 165 l15 -15 14 16 -10 4 -6 -7 -7 6z"/><path d="M650 105 l11 -15 12 16 -8 3 -5 -6 -6 5z"/></g>
+        <!-- dark forest band -->
+        <path d="M0 430 L130 360 L280 440 L430 360 L580 445 L740 365 L900 450 L1060 375 L1200 450 L1200 580 L0 580 Z" fill="url(#s2for)"/>
+        <g fill="#152a1d">
+          <path d="M60 430 l8 24 -16 0z"/><path d="M95 422 l9 26 -18 0z"/><path d="M130 432 l8 24 -16 0z"/>
+          <path d="M1010 442 l8 24 -16 0z"/><path d="M1048 432 l9 26 -18 0z"/><path d="M1086 444 l8 24 -16 0z"/>
+        </g>
+        <!-- church silhouette on a meadow shelf -->
+        <g transform="translate(196,498)" fill="#243a2c">
+          <rect x="0" y="14" width="26" height="30"/>
+          <rect x="26" y="2" width="14" height="42"/>
+          <path d="M26 2 q7 -16 14 0 z"/>
+          <circle cx="33" cy="-4" r="3"/>
+          <rect x="31.5" y="-12" width="3" height="8"/>
+        </g>
+        <!-- lake -->
+        <path d="M0 580 L1200 580 L1200 720 L0 720 Z" fill="url(#s2lake)"/>
+        <g opacity=".45" fill="#cdeae3">
+          <rect x="150" y="606" width="240" height="4" rx="2"/>
+          <rect x="500" y="628" width="300" height="4" rx="2"/>
+          <rect x="820" y="612" width="240" height="3.5" rx="1.7"/>
+        </g>
+      </svg>
+      <figcaption>The Blaueis cirque above the Hintersee · original illustration</figcaption>
+    </figure>
+
+    <p class="intro reveal">Most visitors to Berchtesgaden queue for the Königssee boats. You won't. You'll be at the Hintersee instead — a glassy lake wrapped in the "Zauberwald," the enchanted forest — and climbing into the Blaueis cirque, where the Alps' northernmost glacier still clings beneath the Hochkalter. It's the most dramatic hike of the three, and the shortest drive from home.</p>
+
+    <div class="glance reveal">
+      <div class="row">
+        <div class="cell"><span class="lab">Drive from Ingolstadt</span><span class="val"><b>~ 2 h 45</b> · A8 toward Salzburg</span></div>
+        <div class="cell"><span class="lab">Marquee hike</span><span class="val"><b>Blaueishütte &amp; glacier</b> · demanding</span></div>
+      </div>
+      <div class="row">
+        <div class="cell"><span class="lab">Base 1 · Night</span><span class="val"><b>Hintersee</b><br>remote lakeside, the Zauberwald</span></div>
+        <div class="cell"><span class="lab">Base 2 · Night</span><span class="val"><b>Ramsau village</b><br>the famous church &amp; the Watzmann</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">The Route, Day by Day</h3>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 1 · Arrival</span>
+        <h4>The enchanted forest &amp; lake</h4>
+        <p>Drive down and check in at the Hintersee by early afternoon. Walk the Zauberwald nature trail along the luminous, glacier-fed Ramsauer Ache to the lake; rent a rowboat or picnic at the painters' viewpoint where 19th-century landscape artists set up their easels. Quiet lakeside dinner.</p>
+      </div>
+      <div class="day">
+        <span class="dlab">Day 2 · The big day</span>
+        <h4>Up to the blue ice</h4>
+        <p>Early start from the Zauberwald car park. Climb steadily through mountain forest to the <span class="num">Schärtenalm</span> (~2 h, ~750 m), then up into the Blaueis basin to the Blaueishütte at 1,652 m, ringed by the Hochkalter's walls. Pick your way over the boulders toward the glacier itself, then back down for the hut's legendary cake before the descent.</p>
+      </div>
+    </div>
+    <div class="switch reveal">
+      <span class="t">Switch hotels</span>
+      <div class="d">Hintersee → Ramsau village, ~10 min downhill. Trade deep forest for the open meadow village and that postcard view of St. Sebastian framed by the Watzmann.</div>
+    </div>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 3 · Encore &amp; home</span>
+        <h4>A roaring gorge, then home</h4>
+        <p>A short, easy morning in the Wimbachklamm, where the river thunders through a slot in the rock on railed walkways. Coffee in Ramsau, then a straight run home on the A8 (~2 h 45).</p>
+      </div>
+    </div>
+
+    <div class="hike reveal">
+      <span class="htag">★ Marquee Hike</span>
+      <h4>Hintersee → Schärtenalm → Blaueishütte → Blaueis glacier</h4>
+      <p>Forest paths give way to a steady mountain climb into a high rock amphitheatre. Beyond the hut the route turns rocky and demanding, but you can stop at the terrace and still stand right under the ice. Real mountain fitness pays off here — and the views are the payoff.</p>
+      <div class="badges">
+        <div class="badge"><span class="bk">Distance</span><span class="bv">~10.5 km</span></div>
+        <div class="badge"><span class="bk">Ascent</span><span class="bv">~750–900 m</span></div>
+        <div class="badge"><span class="bk">Time</span><span class="bv">~5–6 h</span></div>
+        <div class="badge"><span class="bk">Grade</span><span class="bv">Demanding</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">Cost · A Couple · Estimated July High Season</h3>
+    <div class="cost reveal">
+      <div class="citem"><span class="cl">Accommodations<span class="sub">2 nights · double · breakfast</span></span><span class="cv">€ 300</span></div>
+      <div class="citem"><span class="cl">Activities &amp; local transport<span class="sub">gorge fee · parking · hikes free</span></span><span class="cv">€ 40</span></div>
+      <div class="citem"><span class="cl">Food &amp; drink<span class="sub">3 days · huts, terraces, 2 dinners</span></span><span class="cv">€ 175</span></div>
+      <div class="citem"><span class="cl">Getting there<span class="sub">fuel ~520 km RT · stays in Germany, no vignette</span></span><span class="cv">€ 95</span></div>
+      <div class="ctotal"><span class="cl">Estimated total<span>all-in, from your door</span></span><span class="cv">≈ €610</span></div>
+    </div>
+  </div>
+</article>
+
+<!-- ===================== OPTION 3 ===================== -->
+<article class="trip" id="opt3">
+  <div class="wrap">
+    <div class="trip-head reveal">
+      <div class="kicker"><span class="idx">OPTION 03</span><span class="region">Tyrol · Wipptal side-valleys</span></div>
+      <h2>Obernberg &amp; Gschnitz</h2>
+      <p class="vibe">A mirror-still lake under the pyramid Tribulaun, then a silent mill-village valley — the quietest, most romantic of the three.</p>
+    </div>
+
+    <figure class="scene reveal">
+      <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of a sharp pyramid peak reflected in a still alpine lake, with golden larch slopes, dark pines, and a tiny lakeside chapel.">
+        <defs>
+          <linearGradient id="s3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f0e4"/><stop offset="1" stop-color="#efe4ce"/></linearGradient>
+          <linearGradient id="s3far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6bfb1"/><stop offset="1" stop-color="#9fac9d"/></linearGradient>
+          <linearGradient id="s3trib" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f8c"/><stop offset="1" stop-color="#5b6360"/></linearGradient>
+          <linearGradient id="s3larch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c89a4a"/><stop offset="1" stop-color="#9c7634"/></linearGradient>
+          <linearGradient id="s3for" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36533f"/><stop offset="1" stop-color="#1f3a2b"/></linearGradient>
+          <linearGradient id="s3lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#74b1ab"/><stop offset=".55" stop-color="#4a8c84"/><stop offset="1" stop-color="#2f6d66"/></linearGradient>
+        </defs>
+        <rect width="1200" height="720" fill="url(#s3sky)"/>
+        <circle cx="880" cy="120" r="50" fill="#f0d399" opacity=".6"/>
+        <!-- far ridges -->
+        <path d="M0 300 L160 200 L320 290 L460 190 L640 290 L820 200 L1000 300 L1200 230 L1200 460 L0 460 Z" fill="url(#s3far)"/>
+        <!-- the Tribulaun pyramid -->
+        <path d="M360 470 L560 110 L760 470 Z" fill="url(#s3trib)"/>
+        <path d="M560 110 L640 255 L560 230 L520 255 Z" fill="#eef0ec" opacity=".9"/>
+        <path d="M560 110 L490 250 L560 226 Z" fill="#b9bdb8" opacity=".6"/>
+        <!-- golden larch shoulders -->
+        <path d="M0 420 L150 320 L300 410 L430 340 L520 420 L520 470 L0 470 Z" fill="url(#s3larch)" opacity=".92"/>
+        <path d="M760 460 L860 360 L1000 430 L1120 360 L1200 410 L1200 470 L760 470 Z" fill="url(#s3larch)" opacity=".92"/>
+        <!-- dark pine band -->
+        <path d="M0 455 L140 395 L300 460 L460 400 L620 462 L780 402 L940 462 L1100 400 L1200 450 L1200 560 L0 560 Z" fill="url(#s3for)"/>
+        <g fill="#16291d">
+          <path d="M70 456 l8 22 -16 0z"/><path d="M104 448 l9 26 -18 0z"/><path d="M140 458 l8 22 -16 0z"/>
+          <path d="M1020 458 l8 22 -16 0z"/><path d="M1058 448 l9 26 -18 0z"/><path d="M1096 458 l8 22 -16 0z"/>
+        </g>
+        <!-- tiny chapel on the shore -->
+        <g transform="translate(372,524)" fill="#26402f">
+          <rect x="0" y="10" width="20" height="22"/>
+          <path d="M-2 10 L10 0 L22 10 Z"/>
+          <rect x="20" y="4" width="8" height="28"/>
+          <path d="M20 4 q4 -9 8 0 z"/>
+        </g>
+        <!-- lake + mirrored pyramid -->
+        <path d="M0 560 L1200 560 L1200 720 L0 720 Z" fill="url(#s3lake)"/>
+        <path d="M460 560 L560 690 L660 560 Z" fill="#7f9c8f" opacity=".42"/>
+        <g opacity=".4" fill="#c7e6dd">
+          <rect x="140" y="592" width="200" height="4" rx="2"/>
+          <rect x="720" y="612" width="280" height="4" rx="2"/>
+          <rect x="220" y="650" width="160" height="3" rx="1.5"/>
+          <rect x="800" y="650" width="200" height="3" rx="1.5"/>
+        </g>
+      </svg>
+      <figcaption>Obernberger See &amp; the Tribulaun · original illustration</figcaption>
+    </figure>
+
+    <p class="intro reveal">Just south of Innsbruck, two side-valleys branch off the Wipptal toward the Italian border and almost nobody turns into them. Obernberg cradles a spring-fed lake so still the pyramid Tribulaun lands upside-down on its surface; the Gschnitztal next door is a hush of larch meadows, a rebuilt mill village, and a pilgrimage church on a high shelf. It's the longest drive — and the one you'll have most to yourselves.</p>
+
+    <div class="glance reveal">
+      <div class="row">
+        <div class="cell"><span class="lab">Drive from Ingolstadt</span><span class="val"><b>~ 3 h 15</b> · A93 Inntal → Brenner</span></div>
+        <div class="cell"><span class="lab">Marquee hike</span><span class="val"><b>Obernberger See loop</b> · easy–moderate</span></div>
+      </div>
+      <div class="row">
+        <div class="cell"><span class="lab">Base 1 · Night</span><span class="val"><b>Obernberg am Brenner</b><br>1,380 m larch-meadow lake village</span></div>
+        <div class="cell"><span class="lab">Base 2 · Night</span><span class="val"><b>Gschnitz / Trins</b><br>silent valley, waterfall &amp; church</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">The Route, Day by Day</h3>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 1 · Arrival</span>
+        <h4>Over the Brenner to the lake</h4>
+        <p>Drive down and into the Obernbergtal by mid-afternoon; check in at Obernberg. An easy late-day walk along the rushing stream brings you to the lake at golden hour — the Tribulaun mirrored in the water, the tiny Maria-am-See chapel on the shore. Dinner in the village.</p>
+      </div>
+      <div class="day">
+        <span class="dlab">Day 2 · The big day</span>
+        <h4>Lake loop, then the next valley</h4>
+        <p>Morning loop right around the Obernberger See beneath the Tribulaun — and, for stronger legs, on up toward the Portjoch on the Italian border. In the afternoon, a short drive over to the Gschnitztal.</p>
+      </div>
+    </div>
+    <div class="switch reveal">
+      <span class="t">Switch hotels</span>
+      <div class="d">Obernberg → Gschnitz / Trins, ~30 min. Late-afternoon stroll to the Sandes waterfall and the rebuilt mill village at the valley head. Dinner in the quiet.</div>
+    </div>
+    <div class="timeline reveal">
+      <div class="day">
+        <span class="dlab">Day 3 · Encore &amp; home</span>
+        <h4>A pilgrimage church, then home</h4>
+        <p>Climb up to St. Magdalena, the 1,660 m pilgrimage church on a meadow shelf with huge valley views (~2 h up). Lunch below, then home over the Brenner and down the Inntal (~3 h 15).</p>
+      </div>
+    </div>
+
+    <div class="hike reveal">
+      <span class="htag">★ Marquee Hike</span>
+      <h4>Obernberger See loop · beneath the Tribulaun</h4>
+      <p>Wide, easy paths from the car park lead through larch meadows to the lake, then a marked trail circles the shore. Short and gentle as a loop — or stretch it into a moderate half-day toward the Maria-am-See chapel viewpoint and the Italian-border saddle.</p>
+      <div class="badges">
+        <div class="badge"><span class="bk">Distance</span><span class="bv">~7–14 km</span></div>
+        <div class="badge"><span class="bk">Ascent</span><span class="bv">~150–530 m</span></div>
+        <div class="badge"><span class="bk">Time</span><span class="bv">~2.5–5 h</span></div>
+        <div class="badge"><span class="bk">Grade</span><span class="bv">Easy–Mod.</span></div>
+      </div>
+    </div>
+
+    <h3 class="sec reveal">Cost · A Couple · Estimated July High Season</h3>
+    <div class="cost reveal">
+      <div class="citem"><span class="cl">Accommodations<span class="sub">2 nights · double · breakfast</span></span><span class="cv">€ 300</span></div>
+      <div class="citem"><span class="cl">Activities &amp; local transport<span class="sub">lake parking · hikes free</span></span><span class="cv">€ 40</span></div>
+      <div class="citem"><span class="cl">Food &amp; drink<span class="sub">3 days · huts, terraces, 2 dinners</span></span><span class="cv">€ 175</span></div>
+      <div class="citem"><span class="cl">Getting there<span class="sub">fuel ~600 km RT · vignette · Brenner toll optional</span></span><span class="cv">€ 140</span></div>
+      <div class="ctotal"><span class="cl">Estimated total<span>all-in, from your door</span></span><span class="cv">≈ €680</span></div>
+    </div>
+  </div>
+</article>
+
+<!-- ===================== COMPARE ===================== -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Quick Read</p>
+    <h2 class="reveal">Three routes, side by side</h2>
+    <p class="sub reveal">Same shape — drive down, one big hike, two different beds, home on day three. They differ in distance, drama, and how alone you'll feel.</p>
+
+    <div class="ctable">
+      <div class="crow reveal">
+        <div class="ctop"><span class="cno">01</span><span class="cname">Tannheim &amp; the Wild Lech</span><span class="cprice">≈ €710</span></div>
+        <div class="cattrs">
+          <div class="ca"><span class="k">Drive</span><span class="v">~2 h 45</span></div>
+          <div class="ca"><span class="k">Hike</span><span class="v">Moderate · lakes</span></div>
+          <div class="ca"><span class="k">Crowds</span><span class="v">Low–medium</span></div>
+          <div class="ca"><span class="k">Bed 1</span><span class="v">Lakeside, Grän</span></div>
+          <div class="ca"><span class="k">Bed 2</span><span class="v">River village, Holzgau</span></div>
+          <div class="ca"><span class="k">Signature</span><span class="v">The 110 m footbridge</span></div>
+          <div class="ca full"><span class="k">Best for</span><span class="v">Turquoise lakes plus a wow-factor finale, without a punishing climb.</span></div>
+        </div>
+      </div>
+
+      <div class="crow reveal">
+        <div class="ctop"><span class="cno">02</span><span class="cname">Ramsau &amp; the Blue Ice</span><span class="cprice">≈ €610</span></div>
+        <div class="cattrs">
+          <div class="ca"><span class="k">Drive</span><span class="v">~2 h 45 · shortest</span></div>
+          <div class="ca"><span class="k">Hike</span><span class="v">Demanding · glacier</span></div>
+          <div class="ca"><span class="k">Crowds</span><span class="v">Low in the back valleys</span></div>
+          <div class="ca"><span class="k">Bed 1</span><span class="v">Hintersee forest</span></div>
+          <div class="ca"><span class="k">Bed 2</span><span class="v">Ramsau village</span></div>
+          <div class="ca"><span class="k">Signature</span><span class="v">Northernmost glacier in the Alps</span></div>
+          <div class="ca full"><span class="k">Best for</span><span class="v">The most dramatic mountain day, the lightest budget, no vignette, and the shortest drive.</span></div>
+        </div>
+      </div>
+
+      <div class="crow reveal">
+        <div class="ctop"><span class="cno">03</span><span class="cname">Obernberg &amp; Gschnitz</span><span class="cprice">≈ €680</span></div>
+        <div class="cattrs">
+          <div class="ca"><span class="k">Drive</span><span class="v">~3 h 15 · longest</span></div>
+          <div class="ca"><span class="k">Hike</span><span class="v">Easy–moderate · lake</span></div>
+          <div class="ca"><span class="k">Crowds</span><span class="v">Lowest of the three</span></div>
+          <div class="ca"><span class="k">Bed 1</span><span class="v">Obernberg lake village</span></div>
+          <div class="ca"><span class="k">Bed 2</span><span class="v">Gschnitz valley</span></div>
+          <div class="ca"><span class="k">Signature</span><span class="v">Mirror lake under the Tribulaun</span></div>
+          <div class="ca full"><span class="k">Best for</span><span class="v">Maximum quiet and romance with the gentlest hiking — if you don't mind the extra drive.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict reveal">
+      <p class="vh">If you're torn</p>
+      <ul>
+        <li><span class="pill">EASIEST</span><span>Want the shortest drive, the biggest mountain payoff, and the smallest bill? Take <b>Ramsau</b> — just be honest about the glacier hike's effort.</span></li>
+        <li><span class="pill">BALANCED</span><span>Want lakes, an easy-moderate hike, and a genuine wow moment to remember? <b>Tannheim &amp; the Lech</b> is the crowd-pleaser.</span></li>
+        <li><span class="pill">QUIETEST</span><span>Want to feel like you have the Alps to yourselves, with gentle walking and the most romantic lake? Drive a little farther for <b>Obernberg &amp; Gschnitz</b>.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <p class="close reveal">Whichever valley you choose, the plan is the same: drive in, climb something beautiful, and let the second hotel feel like a different country.</p>
+    <h3 class="reveal">Before You Book · July Notes</h3>
+    <div class="notes">
+      <div class="n reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#3f5d49" stroke-width="2"/><path d="M12 7v6l4 2" stroke="#3f5d49" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Book the small places <b>now</b>. July is peak season and the best lakeside rooms and quiet pensions in these villages sell out early.</span>
+      </div>
+      <div class="n reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18M12 3v18" stroke="#3f5d49" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Austria needs a motorway <b>vignette</b> (≈ €12.40 / 10 days) for Options 1 &amp; 3. Option 2 stays in Bavaria — none needed. For Obernberg you can use the toll-free B182 Brenner road and skip the autobahn toll.</span>
+      </div>
+      <div class="n reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 18a4 4 0 010-8 5 5 0 019.6-1.5A3.5 3.5 0 0118 18H5z" stroke="#3f5d49" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Start the big hikes <b>early</b>. Alpine thunderstorms tend to build in the afternoon — and the Vilsalpsee road is car-free 8 a.m.–5 p.m., so beat it or ride the Alpenexpress.</span>
+      </div>
+      <div class="n reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5L12 21l-5-2.3 1-5.5-4-3.9 5.5-.8L12 3z" stroke="#3f5d49" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>Pack layers and proper boots. Even in July, mornings at 1,600 m are cold and weather turns fast — and lake water sits around 17–18 °C if you're brave enough to swim.</span>
+      </div>
+    </div>
+    <p class="sig reveal">Alpenroute · curated for two · estimates only, confirm prices when booking</p>
+  </div>
+</footer>
+
+<script>
+  // active-section highlighting in nav
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
+    var map = {};
+    links.forEach(function(a){ var id=a.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) map[id]=a; });
+    var ids = Object.keys(map);
+    if('IntersectionObserver' in window){
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            ids.forEach(function(id){ map[id].classList.remove('active'); });
+            var a = map[e.target.id]; if(a) a.classList.add('active');
+          }
+        });
+      }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+      ids.forEach(function(id){ spy.observe(document.getElementById(id)); });
+    }
+    // scroll reveal
+    var revs = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var ro = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+      }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+      revs.forEach(function(el){ ro.observe(el); });
+    } else { revs.forEach(function(el){ el.classList.add('in'); }); }
+  })();
+</script>
+</body>
+</html>
