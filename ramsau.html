@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ramsau &amp; the Blue Ice · Full Itinerary · Alpenroute</title>
+<meta name="theme-color" content="#1E3A2C">
+<style>
+:root{
+  --ink:#232a24; --ink-soft:#4c5247; --cream:#f4efe4; --cream-2:#ece4d4; --paper:#fbf8f1;
+  --pine:#1e3a2c; --moss:#3f5d49; --stone:#8c8576; --line:#ddd3bf; --line-soft:#e7dfcd;
+  --lake:#4e8079; --lake-deep:#2f5a55; --larch:#bf8636;
+  --serif:ui-serif,"New York","Iowan Old Style",Palatino,Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --wrap:760px;
+  --shadow:0 2px 4px rgba(35,42,36,.04),0 12px 30px -18px rgba(35,42,36,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);display:block;margin:0 0 10px}
+h2{font-family:var(--serif);font-weight:600;color:var(--pine);font-size:clamp(1.7rem,5.4vw,2.4rem);letter-spacing:-.012em;margin:.3rem 0 1.2rem;line-height:1.1}
+h3{font-family:var(--serif);font-weight:600;color:var(--pine);font-size:1.22rem;margin:.25rem 0 .5rem;line-height:1.2}
+p{margin:0 0 1rem}
+
+/* ---- TOPBAR ---- */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(244,239,228,.88);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.topbar .bar{display:flex;align-items:center;gap:14px;min-height:54px;justify-content:space-between}
+.nav-back{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:6px 10px;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-back:hover{color:var(--pine);background:var(--cream-2)}
+.brand{font-family:var(--serif);font-weight:600;color:var(--pine);font-size:1.04rem;text-decoration:none;letter-spacing:.01em}
+.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:6px 9px;border-radius:6px;white-space:nowrap;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--pine);background:var(--cream-2)}
+
+/* ---- HERO ---- */
+.hero{position:relative;min-height:88vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(150deg,var(--pine) 0%,var(--lake-deep) 100%)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:0;transition:opacity 1.2s ease}
+.hero-img.loaded{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,40,28,0) 0%,rgba(20,40,28,.25) 45%,rgba(20,40,28,.9) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 0 52px}
+.hero-eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,241,230,.72);display:block;margin:0 0 14px}
+.hero-title{font-family:var(--serif);font-weight:700;color:#fff;font-size:clamp(2.8rem,10vw,5.2rem);line-height:1;letter-spacing:-.02em;margin:0 0 .5rem}
+.hero-title em{font-style:italic;font-weight:400;color:rgba(174,210,203,.9)}
+.hero-sub{color:rgba(246,241,230,.82);font-size:clamp(1rem,3.2vw,1.2rem);max-width:30em;line-height:1.5;margin:0 0 28px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px}
+.hero-pills span{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(246,241,230,.9);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 13px;backdrop-filter:blur(4px)}
+
+/* ---- STATS BAR ---- */
+.stats-bar{border-bottom:1px solid var(--line);background:var(--paper)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid var(--line)}
+.stat{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat .sk{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:4px}
+.stat .sv{font-family:var(--serif);font-size:1.04rem;color:var(--pine);font-weight:600}
+@media(min-width:560px){.stats-grid{grid-template-columns:repeat(4,1fr)}.stat{border-bottom:none}}
+
+/* ---- SECTIONS ---- */
+section{padding:60px 0}
+section+section{border-top:1px solid var(--line)}
+
+/* ---- OVERVIEW ---- */
+.overview-body{display:flex;flex-direction:column;gap:0}
+.overview-body p{font-size:1.08rem;color:var(--ink-soft);line-height:1.7}
+.overview-body p+p{margin-top:.2rem}
+
+/* ---- HOTELS ---- */
+.hotels-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
+@media(min-width:600px){.hotels-grid{grid-template-columns:1fr 1fr}}
+.hotel-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--paper);box-shadow:var(--shadow)}
+.hotel-card .hn{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:8px}
+.hotel-card.night-1 .hn{color:var(--lake-deep)}
+.hotel-card.night-2 .hn{color:var(--larch)}
+.hotel-card h3{margin-top:0}
+.hotel-card p{font-size:.98rem;color:var(--ink-soft);margin:0 0 14px}
+.hotel-card .price{font-family:var(--mono);font-size:.84rem;font-weight:600;color:var(--pine);background:var(--cream-2);border-radius:6px;padding:7px 12px;display:inline-block}
+
+/* ---- TIMELINE ---- */
+.timeline{margin-top:24px;position:relative;padding-left:36px}
+.timeline::before{content:"";position:absolute;left:8px;top:10px;bottom:24px;width:2px;background:linear-gradient(var(--moss),var(--line) 85%,transparent)}
+.day{position:relative;padding-bottom:32px}
+.day::before{content:"";position:absolute;left:-36px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--cream);border:2.5px solid var(--moss)}
+.day-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--moss);font-weight:600;margin-bottom:4px}
+.day h3{margin:0 0 8px}
+.day p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 6px}
+.hotel-switch{position:relative;padding-left:36px;margin-bottom:28px;padding-top:4px;padding-bottom:4px}
+.hotel-switch::before{content:"⇄";position:absolute;left:-30px;top:0;width:20px;height:20px;line-height:18px;text-align:center;font-size:.78rem;color:#fff;background:var(--larch);border-radius:50%;border:2px solid var(--cream);transform:translateX(-1px)}
+.hotel-switch .hs-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--larch);font-weight:600;display:block;margin-bottom:3px}
+.hotel-switch p{font-size:.97rem;color:var(--ink-soft);margin:0}
+
+/* ---- HIKE FEATURE ---- */
+.hike-feature{background:var(--paper)}
+.trail-card{border:1px solid var(--lake);border-left:4px solid var(--lake);border-radius:10px;background:linear-gradient(180deg,#eef4f1,#f4efe4);padding:20px 20px 16px;margin:8px 0 28px}
+.trail-card .tc-title{font-family:var(--serif);font-weight:600;color:var(--pine);font-size:1.18rem;margin:0 0 14px}
+.trail-stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.ts{display:inline-flex;flex-direction:column;gap:2px;background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:7px 12px;min-width:80px}
+.ts .tk{font-family:var(--mono);font-size:.54rem;letter-spacing:.13em;text-transform:uppercase;color:var(--stone)}
+.ts .tv{font-family:var(--mono);font-size:.9rem;font-weight:600;color:var(--lake-deep)}
+.elevation-wrap{margin:24px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.elevation-wrap svg{display:block;min-width:320px;width:100%;max-width:620px}
+.hike-prose p{font-size:1.04rem;color:var(--ink-soft);line-height:1.7}
+.hike-tips{margin-top:20px;border-top:1px solid var(--line-soft);padding-top:18px;display:flex;flex-direction:column;gap:10px}
+.hike-tip{display:flex;gap:12px;font-size:.97rem;color:var(--ink-soft)}
+.hike-tip::before{content:"▸";color:var(--lake);flex:0 0 auto;margin-top:2px}
+
+/* ---- PULL QUOTE (signature dark band) ---- */
+.pull-band{background:var(--pine);padding:72px 0;position:relative;overflow:hidden}
+.pull-band .topo{position:absolute;inset:0;width:100%;height:100%;opacity:.35;pointer-events:none}
+.pull-band .inner{position:relative;z-index:1;text-align:center}
+.pull-band blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,4.5vw,2.1rem);color:#f6f1e6;line-height:1.4;max-width:22em;margin:0 auto 20px;padding:0}
+.pull-band cite{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(174,210,203,.7);font-style:normal}
+
+/* ---- GALLERY ---- */
+.photo-grid{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 8px}
+.pshot{flex:1 1 calc(50% - 4px);margin:0;aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:var(--cream-2)}
+.pshot img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .7s ease}
+.pshot img.loaded{opacity:1}
+.gallery-credit{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin:6px 0 0}
+@media(min-width:600px){.pshot{flex-basis:calc(33.333% - 6px)}}
+
+/* ---- TIPS ---- */
+.tips-section{background:var(--cream-2)}
+.tips-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
+@media(min-width:580px){.tips-grid{grid-template-columns:1fr 1fr}}
+.tip-card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px}
+.tip-card .tip-icon{font-size:1.3rem;display:block;margin-bottom:8px}
+.tip-card h4{font-family:var(--serif);font-weight:600;color:var(--pine);font-size:1.04rem;margin:0 0 5px}
+.tip-card p{font-size:.94rem;color:var(--ink-soft);margin:0;line-height:1.55}
+
+/* ---- COST TABLE ---- */
+.cost-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:8px;background:var(--paper)}
+.cost-table td{padding:13px 16px;font-size:.98rem;border-bottom:1px solid var(--line-soft)}
+.cost-table td:last-child{text-align:right;font-family:var(--mono);font-weight:600;white-space:nowrap}
+.cost-table .ct-sub{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-top:2px;font-weight:400}
+.cost-table .total-row td{background:var(--pine);color:#fff;border-bottom:none;font-family:var(--serif);font-weight:600;font-size:1.06rem}
+.cost-table .total-row td:last-child{font-size:1.28rem;font-family:var(--mono)}
+.cost-table .total-row .ct-sub{color:#a9bdaf}
+
+/* ---- FOOTER ---- */
+.page-footer{padding:56px 0 72px;border-top:1px solid var(--line)}
+.back-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:600;color:var(--pine);font-size:1.1rem;text-decoration:none;border-bottom:2px solid var(--line);padding-bottom:3px;transition:border-color .2s,color .2s;letter-spacing:-.01em}
+.back-cta:hover{color:var(--lake-deep);border-color:var(--lake)}
+.closing{font-family:var(--serif);font-style:italic;color:var(--stone);margin:24px 0 0;font-size:1.08rem}
+
+/* ---- REVEAL ---- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="wrap bar">
+    <a class="nav-back" href="index.html">← All options</a>
+    <a class="brand" href="index.html">Alpenroute</a>
+    <nav class="nav-links">
+      <a href="#hotels">Hotels</a>
+      <a href="#itinerary">Route</a>
+      <a href="#hike">The hike</a>
+      <a href="#plan">Plan it</a>
+    </nav>
+  </div>
+</nav>
+
+<section class="hero">
+  <img class="hero-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nationalpark%20Berchtesgaden%20Hintersee.jpg?width=1600" alt="The Hintersee lake at Ramsau, Berchtesgaden" loading="eager" onload="this.classList.add('loaded')" onerror="this.remove()">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <span class="hero-eyebrow">Option 02 · Bavarian Alps · 3 Days / 2 Nights</span>
+      <h1 class="hero-title">Ramsau<br><em>&amp; the Blue Ice</em></h1>
+      <p class="hero-sub">Germany's northernmost glacier, an enchanted forest lake, and the corner of Berchtesgaden the tour buses never quite reach.</p>
+      <div class="hero-pills">
+        <span>2h 45 from Ingolstadt</span>
+        <span>No toll or vignette</span>
+        <span>Demanding hike</span>
+        <span>≈ €610 for two</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="wrap stats-grid">
+    <div class="stat"><span class="sk">Drive</span><span class="sv">~2h 45 via A8</span></div>
+    <div class="stat"><span class="sk">Logistics</span><span class="sv">Stays in Bavaria</span></div>
+    <div class="stat"><span class="sk">Two bases</span><span class="sv">Lakeside → Village</span></div>
+    <div class="stat"><span class="sk">Hike grade</span><span class="sv">Demanding · T3</span></div>
+  </div>
+</div>
+
+<main>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <span class="eyebrow">Why this one</span>
+    <h2>The corner that stays quiet</h2>
+    <div class="overview-body reveal">
+      <p>Ramsau bei Berchtesgaden is one of a tiny handful of villages in Germany with "Bergsteigerdorf" status — a designation that signals a community still rooted in the older culture of mountaineering rather than the package-holiday economy that swept through most of the region. While Königssee queues stretch around the block in July, Ramsau's back valleys see a fraction of that traffic. The Blaueis cirque above the Hintersee — where the northernmost glacier in the entire Alps clings to the Hochkalter's north face — is the kind of place where you can run a genuinely serious mountain route and eat your summit cake in something close to silence.</p>
+      <p>Two nights give you two distinct moods. The first is at the Hintersee — a spring-fed lake so clear and still that painters from the Düsseldorf School set up their easels here in the 1800s, beside the Zauberwald, the enchanted forest, where the path winds through a cathedral of ancient trees and ice-age boulders smoothed to velvet by the last glacier. The second is in the village itself, with its famous 1512 onion-dome church framed by the Watzmann — the view that ends up on every Berchtesgaden postcard, and is no less beautiful for it.</p>
+      <p>The drive home on Day 3 goes via the Wimbachklamm gorge — a short, dramatic boardwalk through a slot where the river roars through limestone at full July volume — and puts you back on the A8 toward Ingolstadt by mid-morning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOTELS -->
+<section id="hotels">
+  <div class="wrap">
+    <span class="eyebrow">Where you sleep</span>
+    <h2>Two nights, two moods</h2>
+    <div class="hotels-grid">
+      <div class="hotel-card night-1 reveal">
+        <span class="hn">Night 1 · Hintersee</span>
+        <h3>Lakeside, deep in the forest</h3>
+        <p>A cluster of small family-run Gasthöfe sits right at the water's edge — rooms are modest, balconies over the lake are the main feature, and breakfasts are serious Bavarian affairs. The Zauberwald trailhead is steps away. You'll want to be here in the late afternoon when the light goes horizontal and the Grundübelhörner cliffs turn copper above the water.</p>
+        <span class="price">~€130–165 / night · double · breakfast included</span>
+      </div>
+      <div class="hotel-card night-2 reveal">
+        <span class="hn">Night 2 · Ramsau village</span>
+        <h3>Alpine meadows &amp; the Watzmann view</h3>
+        <p>The village has more options and somewhat more availability. Classic Bavarian Pensionen and Gasthöfe line the single valley road, ranging from simple rooms above a Wirtshaus to well-run family hotels with spa access. The Oberwirt is the traditional Ramsau inn, a few minutes' walk from the St. Sebastian church for the golden-hour light walk that every evening here deserves.</p>
+        <span class="price">~€120–150 / night · double · breakfast included</span>
+      </div>
+    </div>
+    <p style="font-size:.92rem;color:var(--stone);margin-top:14px;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;">July is peak season — book both hotels 8–10 weeks ahead. The Hintersee Gasthöfe have very few rooms.</p>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section id="itinerary">
+  <div class="wrap">
+    <span class="eyebrow">Day by day</span>
+    <h2>Three days in the route</h2>
+    <div class="timeline">
+
+      <div class="day reveal">
+        <div class="day-label">Day 1 · Arrival</div>
+        <h3>The enchanted lake in the afternoon light</h3>
+        <p>Cross into Bavaria's southeastern corner and check in at the Hintersee by early afternoon — the drive from Ingolstadt is straightforward on the A8. Once you've dropped your bags, walk the Zauberwald nature trail along the glacier-fed Ramsauer Ache: two kilometres through a forest of mossy ice-age boulders and ancient Norway spruce, following the clear river to the lake shore. The Hintersee is spring-fed, cold, and turquoise; rent a rowboat and drift toward the far shore where the cliffs drop straight into the water.</p>
+        <p>The painters' viewpoint is signposted at the south end of the lake — a low-key clearing that 19th-century landscape painters kept returning to. Dinner at whichever lakeside Gasthof you're staying at; the local trout is the obvious order.</p>
+      </div>
+
+      <div class="hotel-switch reveal">
+        <span class="hs-label">Switch hotels after the hike</span>
+        <p>After descending from Blaueishütte in the afternoon, the move to Ramsau village takes ten minutes. Two different worlds ten minutes apart — from deep forest and granite cirque to open meadow and the Watzmann above every rooftop.</p>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-label">Day 2 · The big day</div>
+        <h3>Up to the blue ice &amp; then the village at dusk</h3>
+        <p>Leave the hotel by 7:30 a.m. at the latest — alpine thunderstorms build reliably after 2 p.m. in July, and you want to be descending before then. The Blaueishütte trailhead starts at the Zauberwald car park (785 m). The route climbs steadily through mountain forest to the Schärtenalm at around 1,520 m — roughly two hours and 750 metres of ascent — then continues to the hut itself at 1,652 m, set in the Blaueis cirque directly below the north face of the Hochkalter. The hut's terrace is one of the finest viewpoints in the Berchtesgadener Alps: order the Kaiserschmarrn and take your time.</p>
+        <p>Above the hut the terrain turns to boulderfield; the Blaueis glacier is another 150 m up on a rocky, occasionally steep approach. No technical equipment required for the viewpoint. The glacier is small and retreating but it is real, and it is the last ice north of the Tyrol. Come back down by the same route; the lake reappears below the treeline on the descent and it catches you off guard every time.</p>
+        <p>Move to Ramsau village in the afternoon. The St. Sebastian church sits at the end of a meadow lane — the light on the Watzmann at 7 p.m. in July is worth the five-minute walk from any guesthouse. Dinner at the Oberwirt or nearby.</p>
+      </div>
+
+      <div class="day reveal">
+        <div class="day-label">Day 3 · Morning &amp; home</div>
+        <h3>The gorge, then the autobahn</h3>
+        <p>The Wimbachklamm gorge walk is perfectly scaled for a departure morning: a 400-metre boardwalk through a narrow limestone slot where the Wimbach river funnels through at full July volume, loud and fast. Entry is €4 per person, there's a small café at the entrance, and the whole thing takes 45 minutes. Leave Ramsau by 10 a.m. and you're back in Ingolstadt before 1 p.m. via the A8.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HIKE FEATURE -->
+<section class="hike-feature" id="hike">
+  <div class="wrap">
+    <span class="eyebrow">The marquee hike</span>
+    <h2>Zauberwald → Schärtenalm → Blaueishütte → Blaueis</h2>
+
+    <div class="trail-card reveal">
+      <p class="tc-title">Trail profile</p>
+      <div class="trail-stats">
+        <div class="ts"><span class="tk">Start</span><span class="tv">785 m</span></div>
+        <div class="ts"><span class="tk">Hut</span><span class="tv">1,652 m</span></div>
+        <div class="ts"><span class="tk">Ascent</span><span class="tv">~900 m</span></div>
+        <div class="ts"><span class="tk">Distance</span><span class="tv">~10.5 km</span></div>
+        <div class="ts"><span class="tk">Time</span><span class="tv">5–6 hours</span></div>
+        <div class="ts"><span class="tk">Grade</span><span class="tv">T3 · Demanding</span></div>
+      </div>
+    </div>
+
+    <!-- Elevation profile SVG -->
+    <div class="elevation-wrap reveal">
+      <svg viewBox="0 0 620 185" aria-label="Elevation profile of the Blaueishütte hike" role="img">
+        <defs>
+          <linearGradient id="epfill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4e8079" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#4e8079" stop-opacity=".04"/>
+          </linearGradient>
+        </defs>
+        <!-- grid lines -->
+        <line x1="20" y1="170" x2="600" y2="170" stroke="#ddd3bf" stroke-width="1"/>
+        <line x1="20" y1="130" x2="600" y2="130" stroke="#ddd3bf" stroke-width=".5" stroke-dasharray="4,3"/>
+        <line x1="20" y1="90" x2="600" y2="90" stroke="#ddd3bf" stroke-width=".5" stroke-dasharray="4,3"/>
+        <line x1="20" y1="50" x2="600" y2="50" stroke="#ddd3bf" stroke-width=".5" stroke-dasharray="4,3"/>
+        <!-- elevation labels -->
+        <text x="14" y="173" font-family="ui-monospace,monospace" font-size="9" fill="#8c8576" text-anchor="end">785m</text>
+        <text x="14" y="133" font-family="ui-monospace,monospace" font-size="9" fill="#8c8576" text-anchor="end">1200m</text>
+        <text x="14" y="93" font-family="ui-monospace,monospace" font-size="9" fill="#8c8576" text-anchor="end">1600m</text>
+        <text x="14" y="53" font-family="ui-monospace,monospace" font-size="9" fill="#8c8576" text-anchor="end">2000m</text>
+        <!-- filled area -->
+        <path d="M 22,170 C 100,166 185,148 265,110 C 282,104 295,98 318,92 C 340,86 362,80 388,75 C 415,70 445,68 468,66 L 598,170 Z" fill="url(#epfill)"/>
+        <!-- profile line -->
+        <path d="M 22,170 C 100,166 185,148 265,110 C 282,104 295,98 318,92 C 340,86 362,80 388,75 C 415,70 445,68 468,66 L 598,170" fill="none" stroke="#4e8079" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- waypoint dots -->
+        <circle cx="22" cy="170" r="5" fill="#fbf8f1" stroke="#4e8079" stroke-width="2"/>
+        <circle cx="318" cy="92" r="5" fill="#fbf8f1" stroke="#4e8079" stroke-width="2"/>
+        <circle cx="468" cy="66" r="5" fill="#fbf8f1" stroke="#3f5d49" stroke-width="2.5"/>
+        <circle cx="598" cy="170" r="5" fill="#fbf8f1" stroke="#4e8079" stroke-width="2"/>
+        <!-- labels -->
+        <text x="22" y="185" font-family="ui-monospace,monospace" font-size="8.5" fill="#4c5247" text-anchor="middle">Trailhead</text>
+        <text x="318" y="84" font-family="ui-monospace,monospace" font-size="8.5" fill="#4c5247" text-anchor="middle">Schärtenalm</text>
+        <text x="468" y="58" font-family="ui-monospace,monospace" font-size="8.5" fill="#2f5a55" text-anchor="middle" font-weight="600">Blaueishütte</text>
+        <text x="598" y="185" font-family="ui-monospace,monospace" font-size="8.5" fill="#4c5247" text-anchor="middle">Return</text>
+        <!-- Blaueis glacier marker -->
+        <circle cx="510" cy="60" r="3.5" fill="#a9cdd9"/>
+        <text x="510" y="52" font-family="ui-monospace,monospace" font-size="8" fill="#2f5a55" text-anchor="middle">Blaueis</text>
+        <!-- distance axis -->
+        <text x="308" y="185" font-family="ui-monospace,monospace" font-size="8" fill="#8c8576" text-anchor="middle">← 12 km round trip →</text>
+      </svg>
+    </div>
+
+    <div class="hike-prose reveal">
+      <p>The trailhead is at the Zauberwald car park, just past the Hintersee on the Klausbachtal road. From there the path climbs a long, forested spur — well-marked, steadily demanding, with the sound of the Ramsauer Ache fading below you as the trees thin. The Schärtenalm is the obvious rest stop: an alpine meadow bench at roughly 1,520 m with open views south toward the Italian Alps, and usually an unmanned water point.</p>
+      <p>Above the Schärtenalm the trail turns rockier and steeper, entering the lower Blaueis basin. The hut materialises at 1,652 m, wedged into the cirque floor with the Hochkalter rising sheer above it — a classic alpine setting. The DAV hut is staffed from late May to late October and serves full meals and excellent cake; the terrace faces directly into the cirque. This is the destination. Everything above is a bonus.</p>
+      <p>If you have energy and sure footing: above the hut the terrain becomes boulderfield, and the glacier itself is roughly 150 vertical metres higher on a rocky approach. There's no path as such — you pick your way across loose stone. The glacier is a diminished remnant of what it was even 30 years ago, but the mass of blue-white ice under the cliffs is real and dramatic. No technical equipment required for the normal viewpoint. Return the way you came; the descent to the car park takes roughly two hours.</p>
+    </div>
+
+    <div class="hike-tips reveal">
+      <div class="hike-tip">Start by 7:30 a.m. at the latest — afternoon thunderstorms are the rule in July, not the exception, and the exposed upper cirque is not somewhere to be in a storm.</div>
+      <div class="hike-tip">The Zauberwald car park fills by 9 a.m. on summer weekends. Arriving before 8:30 both secures a space and gives you the trail to yourselves for the first hour.</div>
+      <div class="hike-tip">The Blaueishütte is a DAV hut. It's good practice to call ahead (the number is on the DAV website) to confirm opening, especially early or late in the season.</div>
+      <div class="hike-tip">Boots with ankle support and grip are non-negotiable above the Schärtenalm; trail runners are marginal on the wet granite slabs. Bring a wind layer for the cirque even on a warm day.</div>
+      <div class="hike-tip">The glacier is retreating measurably — it may look less dramatic than older photos suggest. The cirque walls and the hut setting are the visual payoff; treat any ice as a bonus.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE (signature dark band) -->
+<div class="pull-band">
+  <svg class="topo" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#a9bdaf" stroke-width=".8">
+      <path d="M-50 90 C150 60 300 120 500 80 S750 60 880 100"/>
+      <path d="M-50 130 C150 100 300 160 500 120 S750 100 880 140"/>
+      <path d="M-50 170 C150 140 310 200 510 158 S760 138 880 178"/>
+      <path d="M-50 50 C180 30 330 90 530 50 S780 30 880 60"/>
+      <path d="M-50 210 C160 180 320 230 520 195 S780 175 880 215"/>
+    </g>
+  </svg>
+  <div class="wrap inner">
+    <blockquote>"At 1,652 metres you eat cake on a terrace above the last glacier north of the Tyrol — then on the descent the lake reappears below the treeline, and the whole day makes sense."</blockquote>
+    <cite>Ramsau · Berchtesgadener Alpen · July</cite>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow">The place in pictures</span>
+    <h2>Ramsau, frame by frame</h2>
+    <div class="photo-grid">
+      <figure class="pshot reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pfarrkirche%20St.%20Sebastian%20(Ramsau).jpg?width=1000" alt="St. Sebastian church, Ramsau" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.pshot').remove()"></figure>
+      <figure class="pshot reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Deutschland%20Bayern%20Nationalpark%20Berchtesgaden%20Ramsau%20Wimbachklamm%20Wasserfall%20Foto%20Lividus.jpg?width=1000" alt="Wimbachklamm gorge" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.pshot').remove()"></figure>
+      <figure class="pshot reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wimbachgries%20zwischen%20Watzmann,%20Steinernem%20Meer%20und%20Hochkalter%20im%20Nationalpark%20Berchtesgaden.jpg?width=1000" alt="The Wimbachgries valley" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.pshot').remove()"></figure>
+      <figure class="pshot reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ramsau%20Berchtesgadenland%20Germany.JPG?width=1000" alt="Ramsau landscape" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.pshot').remove()"></figure>
+      <figure class="pshot reveal"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/In%20der%20Wimbachklamm%20(26).JPG?width=1000" alt="Inside the Wimbachklamm" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.pshot').remove()"></figure>
+    </div>
+    <p class="gallery-credit">Photos via Wikimedia Commons · CC BY-SA</p>
+  </div>
+</section>
+
+<!-- PRACTICAL TIPS -->
+<section class="tips-section" id="plan">
+  <div class="wrap">
+    <span class="eyebrow">Before you go</span>
+    <h2>Practical notes</h2>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <span class="tip-icon">🚗</span>
+        <h4>Getting there</h4>
+        <p>Ingolstadt → Ramsau is approximately 250 km via the A9 and A8. The route stays entirely in Bavaria — no Austrian motorway vignette required and no road tolls. Budget ~90 minutes to the Salzburg interchange, another 30–40 minutes south to Ramsau.</p>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">🅿️</span>
+        <h4>Parking</h4>
+        <p>The Zauberwald car park (the hike trailhead) charges ~€5–6/day and fills before 9 a.m. in summer. Arriving before 8:30 on your hike day is not optional if you want a space — and the early start is good practice anyway for the climb.</p>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">⛈️</span>
+        <h4>Afternoon storms</h4>
+        <p>Thunderstorms in the Berchtesgaden Alps routinely build between 1 and 3 p.m. throughout July. Plan to be below the Schärtenalm and heading down before 1 p.m. Starting by 7:30 makes this comfortable; 8 a.m. is the latest you should leave the trailhead.</p>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">📅</span>
+        <h4>Book early</h4>
+        <p>The good small Gasthöfe at the Hintersee have very limited rooms — some have five or six doubles. For mid-July, booking 8–10 weeks out is not conservative; it's necessary. The Blaueishütte fills for overnight guests; day visitors just need good weather and an early start.</p>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">🐾</span>
+        <h4>National park rules</h4>
+        <p>Ramsau lies within Nationalpark Berchtesgaden. Dogs must be kept on a short leash at all times. Wild camping and fires outside of designated areas are prohibited. The park has confirmed bear presence — basic food hygiene applies if you're picnicking on the trail.</p>
+      </div>
+      <div class="tip-card reveal">
+        <span class="tip-icon">⛵</span>
+        <h4>Rowboat hire</h4>
+        <p>There's a small Bootsverleih (boat hire) at the Hintersee, typically open from late morning on good days. Rowboats and paddleboats run around €10–15 per hour. Worth an hour on the afternoon of Day 1 — the view from the water of the encircling cliffs and forest is quite different from the shore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST BREAKDOWN -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">The numbers</span>
+    <h2>Full budget · A couple · July high season</h2>
+    <table class="cost-table reveal">
+      <tbody>
+        <tr>
+          <td>Hotel Night 1 — Hintersee<span class="ct-sub">double room with breakfast</span></td>
+          <td>€135–165</td>
+        </tr>
+        <tr>
+          <td>Hotel Night 2 — Ramsau village<span class="ct-sub">double room with breakfast</span></td>
+          <td>€120–145</td>
+        </tr>
+        <tr>
+          <td>Fuel (Ingolstadt → Ramsau → Ingolstadt)<span class="ct-sub">≈ 520 km · no tolls or vignette</span></td>
+          <td>€90–100</td>
+        </tr>
+        <tr>
+          <td>Parking<span class="ct-sub">2 days · Zauberwald + village</span></td>
+          <td>€10</td>
+        </tr>
+        <tr>
+          <td>Wimbachklamm entry<span class="ct-sub">€4 per person</span></td>
+          <td>€8</td>
+        </tr>
+        <tr>
+          <td>Blaueishütte — lunch &amp; cake<span class="ct-sub">for two on the summit day</span></td>
+          <td>€32–40</td>
+        </tr>
+        <tr>
+          <td>Dinners<span class="ct-sub">2 evenings · local Gasthöfe · for two</span></td>
+          <td>€100–130</td>
+        </tr>
+        <tr>
+          <td>Rowboat, drinks, coffees<span class="ct-sub">across 3 days</span></td>
+          <td>€30–40</td>
+        </tr>
+        <tr class="total-row">
+          <td>Estimated total<span class="ct-sub">all-in · from Ingolstadt · for two</span></td>
+          <td>≈ €610</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  <div class="wrap">
+    <a class="back-cta" href="index.html">← Compare all three options</a>
+    <p class="closing">The cheapest route, the shortest drive, and the one with an actual glacier. Ramsau rewards the early start.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var revs=Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    revs.forEach(function(el){ ro.observe(el); });
+  } else { revs.forEach(function(el){ el.classList.add('in'); }); }
+  var links=Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections=['hotels','itinerary','hike','plan'].map(function(id){return document.getElementById(id);});
+  if('IntersectionObserver' in window){
+    var sp=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id=e.target.id;
+          links.forEach(function(a){ a.style.background=''; a.style.color=''; });
+          var a=document.querySelector('.nav-links a[href="#'+id+'"]');
+          if(a){ a.style.color='var(--pine)'; a.style.background='var(--cream-2)'; }
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    sections.forEach(function(s){ if(s) sp.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
