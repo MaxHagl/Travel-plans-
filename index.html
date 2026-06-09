@@ -80,6 +80,14 @@
   figure.scene .ph{position:relative; line-height:0}
   figure.scene .ph img.photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 38%; opacity:0; transition:opacity .7s ease}
   figure.scene .ph img.photo.loaded{opacity:1}
+  .gallery-wrap{margin:24px 0 30px}
+  .gallery-wrap .glabel{font-family:var(--mono); font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); margin:0 0 12px}
+  .gallery{display:flex; flex-wrap:wrap; gap:8px}
+  .gallery .shot{flex:1 1 calc(50% - 4px); margin:0; aspect-ratio:4 / 3; overflow:hidden; border-radius:8px; border:1px solid var(--line); background:var(--cream-2)}
+  .gallery .shot img{width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity .6s ease}
+  .gallery .shot img.loaded{opacity:1}
+  .gallery-wrap .gcredit{font-family:var(--mono); font-size:.56rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone); margin:8px 0 0}
+  @media(min-width:680px){ .gallery .shot{flex-basis:calc(33.333% - 6px)} }
   figure.scene figcaption{font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--stone); padding:9px 14px; border-top:1px solid var(--line-soft); background:var(--cream)}
 
   .intro{margin:22px 0 26px; color:var(--ink-soft); font-size:1.06rem}
@@ -319,6 +327,18 @@
       <figcaption>Vilsalpsee, Tannheimer Tal · photo via Wikimedia Commons (CC BY-SA)</figcaption>
     </figure>
 
+    <section class="gallery-wrap reveal">
+      <p class="glabel">A few glimpses · Tannheim &amp; the Lech</p>
+      <div class="gallery">
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haengebruecke%20Holzgau%202022.jpg?width=1000" alt="Holzgau suspension bridge" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Holzgau%20-%20H%C3%A4ngebr%C3%BCcke%20%C3%BCber%20dem%20H%C3%B6henbach.JPG?width=1000" alt="Holzgau bridge over the Höhenbach gorge" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Oberes%20Lechtal.JPG?width=1000" alt="The upper Lech valley" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aggenstein%20vom%20Vilsalpsee.JPG?width=1000" alt="The Aggenstein above the Vilsalpsee" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vilsalpsee%20mit%20Booten,%20Kugelhorn.jpg?width=1000" alt="Vilsalpsee with boats below the Kugelhorn" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+      </div>
+      <p class="gcredit">Photos via Wikimedia Commons</p>
+    </section>
+
     <p class="intro reveal">You start beside a string of deep-blue lakes ringed by limestone walls, then cross a single pass into the Lechtal — one of the last wild river valleys in the Alps, where the Lech still braids across open gravel beds. The marquee day is a quiet lake-to-lake hike; the encore is walking 110 metres above a gorge on a swaying steel ribbon.</p>
 
     <div class="glance reveal">
@@ -437,6 +457,18 @@
       </div>
       <figcaption>Hintersee, Ramsau · photo via Wikimedia Commons</figcaption>
     </figure>
+
+    <section class="gallery-wrap reveal">
+      <p class="glabel">A few glimpses · Ramsau &amp; the Blue Ice</p>
+      <div class="gallery">
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pfarrkirche%20St.%20Sebastian%20(Ramsau).jpg?width=1000" alt="St. Sebastian church, Ramsau" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Deutschland%20Bayern%20Nationalpark%20Berchtesgaden%20Ramsau%20Wimbachklamm%20Wasserfall%20Foto%20Lividus.jpg?width=1000" alt="Wimbachklamm gorge waterfall" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wimbachgries%20zwischen%20Watzmann,%20Steinernem%20Meer%20und%20Hochkalter%20im%20Nationalpark%20Berchtesgaden.jpg?width=1000" alt="The Wimbachgries gravel valley" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ramsau%20Berchtesgadenland%20Germany.JPG?width=1000" alt="Ramsau landscape" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/In%20der%20Wimbachklamm%20(26).JPG?width=1000" alt="Inside the Wimbachklamm" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+      </div>
+      <p class="gcredit">Photos via Wikimedia Commons</p>
+    </section>
 
     <p class="intro reveal">Most visitors to Berchtesgaden queue for the Königssee boats. You won't. You'll be at the Hintersee instead — a glassy lake wrapped in the "Zauberwald," the enchanted forest — and climbing into the Blaueis cirque, where the Alps' northernmost glacier still clings beneath the Hochkalter. It's the most dramatic hike of the three, and the shortest drive from home.</p>
 
@@ -557,6 +589,18 @@
       </div>
       <figcaption>Obernberger See &amp; the Tribulaun · photo via Unsplash / Wikimedia Commons</figcaption>
     </figure>
+
+    <section class="gallery-wrap reveal">
+      <p class="glabel">A few glimpses · Obernberg &amp; Gschnitz</p>
+      <div class="gallery">
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/St.%20Nikolaus%20(Obernberg)%20and%20Tribulaun,%20January%202020.jpg?width=1000" alt="Obernberg's St. Nikolaus church and the Tribulaun" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gschnitz%20Vallata.JPG?width=1000" alt="The Gschnitz valley" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gschnitztal%20-%20Talabschluss.jpg?width=1000" alt="Head of the Gschnitz valley" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/1661-Magdalena.jpg?width=1000" alt="St. Magdalena pilgrimage chapel" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+        <figure class="shot"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gschnitzer%20Tribulaun%20N.JPG?width=1000" alt="The Gschnitzer Tribulaun" loading="lazy" onload="this.classList.add('loaded')" onerror="this.closest('.shot').remove()"></figure>
+      </div>
+      <p class="gcredit">Photos via Wikimedia Commons</p>
+    </section>
 
     <p class="intro reveal">Just south of Innsbruck, two side-valleys branch off the Wipptal toward the Italian border and almost nobody turns into them. Obernberg cradles a spring-fed lake so still the pyramid Tribulaun lands upside-down on its surface; the Gschnitztal next door is a hush of larch meadows, a rebuilt mill village, and a pilgrimage church on a high shelf. It's the longest drive — and the one you'll have most to yourselves.</p>
 
