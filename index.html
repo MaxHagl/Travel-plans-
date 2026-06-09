@@ -77,6 +77,9 @@
 
   figure.scene{margin:26px 0 8px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--paper); box-shadow:var(--shadow)}
   figure.scene svg{display:block; width:100%; height:auto}
+  figure.scene .ph{position:relative; line-height:0}
+  figure.scene .ph img.photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 38%; opacity:0; transition:opacity .7s ease}
+  figure.scene .ph img.photo.loaded{opacity:1}
   figure.scene figcaption{font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--stone); padding:9px 14px; border-top:1px solid var(--line-soft); background:var(--cream)}
 
   .intro{margin:22px 0 26px; color:var(--ink-soft); font-size:1.06rem}
@@ -265,6 +268,7 @@
     </div>
 
     <figure class="scene reveal">
+      <div class="ph">
       <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of a turquoise alpine lake below layered green ridges, with a thin suspension footbridge spanning a gorge.">
         <defs>
           <linearGradient id="s1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f1e6"/><stop offset="1" stop-color="#eadfca"/></linearGradient>
@@ -310,7 +314,9 @@
         <path d="M300 560 l40 70 -80 0 z" fill="#2f6760" opacity=".4"/>
         <path d="M860 560 l46 80 -92 0 z" fill="#2f6760" opacity=".4"/>
       </svg>
-      <figcaption>Vilsalpsee &amp; the Höhenbachtal · original illustration</figcaption>
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Blick%20%C3%BCber%20den%20Vilsalpsee.jpg?width=1600" alt="View over the Vilsalpsee, Tannheimer Tal" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">
+      </div>
+      <figcaption>Vilsalpsee, Tannheimer Tal · photo via Wikimedia Commons (CC BY-SA)</figcaption>
     </figure>
 
     <p class="intro reveal">You start beside a string of deep-blue lakes ringed by limestone walls, then cross a single pass into the Lechtal — one of the last wild river valleys in the Alps, where the Lech still braids across open gravel beds. The marquee day is a quiet lake-to-lake hike; the encore is walking 110 metres above a gorge on a swaying steel ribbon.</p>
@@ -384,6 +390,7 @@
     </div>
 
     <figure class="scene reveal">
+      <div class="ph">
       <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of jagged grey peaks holding a small blue glacier, with dark forest, a turquoise lake, and a small onion-dome church below.">
         <defs>
           <linearGradient id="s2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef0ea"/><stop offset="1" stop-color="#e6e2d2"/></linearGradient>
@@ -426,7 +433,9 @@
           <rect x="820" y="612" width="240" height="3.5" rx="1.7"/>
         </g>
       </svg>
-      <figcaption>The Blaueis cirque above the Hintersee · original illustration</figcaption>
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nationalpark%20Berchtesgaden%20-%20Hintersee%20mit%20Blick%20auf%20den%20Hochkalter%20-%20Andreas%20Gr%C3%A4we.jpg?width=1600" alt="Hintersee with the Hochkalter, Ramsau" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">
+      </div>
+      <figcaption>Hintersee &amp; the Hochkalter, Ramsau · photo: Andreas Gräwe / Wikimedia Commons (CC BY-SA)</figcaption>
     </figure>
 
     <p class="intro reveal">Most visitors to Berchtesgaden queue for the Königssee boats. You won't. You'll be at the Hintersee instead — a glassy lake wrapped in the "Zauberwald," the enchanted forest — and climbing into the Blaueis cirque, where the Alps' northernmost glacier still clings beneath the Hochkalter. It's the most dramatic hike of the three, and the shortest drive from home.</p>
@@ -500,6 +509,7 @@
     </div>
 
     <figure class="scene reveal">
+      <div class="ph">
       <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Illustration of a sharp pyramid peak reflected in a still alpine lake, with golden larch slopes, dark pines, and a tiny lakeside chapel.">
         <defs>
           <linearGradient id="s3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f0e4"/><stop offset="1" stop-color="#efe4ce"/></linearGradient>
@@ -543,7 +553,9 @@
           <rect x="800" y="650" width="200" height="3" rx="1.5"/>
         </g>
       </svg>
-      <figcaption>Obernberger See &amp; the Tribulaun · original illustration</figcaption>
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Obernberger%20See%2C%20Obernberg%20am%20Brenner%2C%20Austria%20%28Unsplash%29.jpg?width=1600" alt="Obernberger See and the Tribulaun" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">
+      </div>
+      <figcaption>Obernberger See &amp; the Tribulaun · photo via Unsplash / Wikimedia Commons</figcaption>
     </figure>
 
     <p class="intro reveal">Just south of Innsbruck, two side-valleys branch off the Wipptal toward the Italian border and almost nobody turns into them. Obernberg cradles a spring-fed lake so still the pyramid Tribulaun lands upside-down on its surface; the Gschnitztal next door is a hush of larch meadows, a rebuilt mill village, and a pilgrimage church on a high shelf. It's the longest drive — and the one you'll have most to yourselves.</p>
